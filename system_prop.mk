@@ -1,11 +1,10 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.24bit.enable=true \
+    audio.offload.24bit.enable=false \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=false \
     audio.offload.multiple.enabled=false \
-    audio.offload.pcm.enable=true \
-    media.aac_51_output_enabled=true
+    audio.offload.pcm.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     av.offload.enable=false \
@@ -27,6 +26,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.composition.type=dyn \
     persist.hwc.mdpcomp.enable=true \
     ro.opengles.version=196608 \
     ro.sf.lcd_density=560
@@ -76,7 +76,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qualcomm.sns.daemon=e \
     debug.qualcomm.sns.hal=e \
     debug.qualcomm.sns.libsensor1=e
-
-# USB
+#ADB DEBUG
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true
+persist.service.adb.enable=1                                                    
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb

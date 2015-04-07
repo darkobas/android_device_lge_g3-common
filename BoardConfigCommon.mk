@@ -31,7 +31,6 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
@@ -90,6 +89,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Logging
 TARGET_USES_LOGD=false
 
+# Media
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+
 # NFC
 BOARD_NFC_CHIPSET := pn547
 
@@ -105,7 +107,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm support
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := true
+TARGET_QCOM_DISPLAY_VARIANT := caf-bfam
+TARGET_QCOM_AUDIO_VARIANT := caf-bfam
+TARGET_QCOM_MEDIA_VARIANT := caf-bfam
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -140,7 +148,6 @@ BOARD_SEPOLICY_UNION += \
     platform_app.te \
     property.te \
     property_contexts \
-    radio.te \
     rmt_storage.te \
     sensors.te \
     servicemanager.te \
@@ -156,3 +163,14 @@ BOARD_SEPOLICY_UNION += \
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
+
+# TWRP specific build flags
+TW_THEME := portrait_hdpi
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_JB_CRYPTO := false
+TW_NO_SCREEN_BLANK := true
+TW_EXCLUDE_ENCRYPTED_BACKUPS := true
+TW_INCLUDE_L_CRYPTO := true
+
