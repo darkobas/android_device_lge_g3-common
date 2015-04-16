@@ -212,3 +212,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# TWRP
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/configs/recovery.fstab:recovery/root/etc/twrp.fstab
