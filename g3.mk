@@ -93,6 +93,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8974
 
+# DeviceParts
+PRODUCT_PACKAGES += \
+    G3Parts
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
